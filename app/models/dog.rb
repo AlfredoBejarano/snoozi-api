@@ -1,4 +1,6 @@
 class Dog < ActiveRecord::Base
+  validates :breed, :color, :gender, :found_location, :found_date, :description, :number, :image, :presence => true
+
   has_attached_file :image, 
   styles: {
     thumb: ["196x196#", :jpg], 
