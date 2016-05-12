@@ -10,5 +10,6 @@ Dog
 * found_location
 * found_date
 * description
+* number
 
 
