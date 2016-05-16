@@ -1,3 +1,5 @@
+require "base64"
+
 class DogController < ApplicationController
   include ActionController::MimeResponds
 
@@ -11,7 +13,21 @@ class DogController < ApplicationController
   end
 
   def index
-    render :json => Dog.all
+    @dogs = Dog.all
+    render json: @dogs.as_json(
+      :only => [
+        :breed,
+        :color,
+        :created_at,
+        :description,
+        :found_date,
+        :found_location,
+        :gender
+      ], 
+      :methods => [        
+        :thumb_url
+      ]
+    )
   end
 
   def create

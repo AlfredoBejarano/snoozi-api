@@ -3,7 +3,7 @@ class Dog < ActiveRecord::Base
 
   has_attached_file :image, 
   styles: {
-    thumb: ["196x196#", :jpg], 
+    thumb: ["64x64#", :jpg], 
     original: ['512x512>', :jpg] 
   },
   convert_options: {
@@ -17,4 +17,12 @@ class Dog < ActiveRecord::Base
   content_type: {
     content_type: ['image/jpeg', 'image/jpg', 'image/png'] },
   size: { in: 0..1024.kilobytes }   
+
+  def image_url
+    image.url(:original)
+  end
+
+  def thumb_url
+    image.url(:thumb)
+  end
 end
