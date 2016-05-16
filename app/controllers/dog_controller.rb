@@ -1,6 +1,6 @@
 class DogController < ApplicationController
   include ActionController::MimeResponds
-  
+
   def sanitize(id)
     $id = id.to_i
     if $id.is_a? Integer
