@@ -16,6 +16,7 @@ class DogController < ApplicationController
     @dogs = Dog.all
     render json: @dogs.as_json(
       :only => [
+        :id,
         :breed,
         :color,
         :created_at,

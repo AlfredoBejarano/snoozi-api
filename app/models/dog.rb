@@ -3,7 +3,7 @@ class Dog < ActiveRecord::Base
 
   has_attached_file :image, 
   styles: {
-    thumb: ["64x64#", :jpg], 
+    thumb: ["96x96#", :jpg], 
     original: ['512x512>', :jpg] 
   },
   convert_options: {
