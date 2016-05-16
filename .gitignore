@@ -43,3 +43,6 @@ bower.json
 # OS specific files
 *.DS_Store
 thumbs.db
+
+# IDEA files
+.idea
