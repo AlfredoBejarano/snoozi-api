@@ -21,12 +21,20 @@ ActiveRecord::Schema.define(version: 20160512162519) do
     t.date     "found_date"
     t.text     "description"
     t.string   "number"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image_file_name_file_name"
+    t.string   "image_file_name_content_type"
+    t.integer  "image_file_name_file_size"
+    t.datetime "image_file_name_updated_at"
+    t.string   "image_content_type_file_name"
+    t.string   "image_content_type_content_type"
+    t.integer  "image_content_type_file_size"
+    t.datetime "image_content_type_updated_at"
   end
 
 end
