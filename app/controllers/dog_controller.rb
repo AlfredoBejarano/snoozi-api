@@ -45,8 +45,27 @@ class DogController < ApplicationController
 
   def show 
     $id = sanitize(params[:id])
-    @Dog = Dog.find($id)
-    render :json => @Dog
+    if(Dog.exists?($id))
+      @Dog = Dog.find($id)
+      render json: @Dog.as_json(
+        :only => [
+          :id,
+          :breed,
+          :color,
+          :created_at,
+          :description,
+          :found_date,
+          :found_location,
+          :gender,
+          :number
+        ], 
+        :methods => [        
+          :image_url
+        ]
+      )
+    else
+      render json: { "code":"404" }
+    end
   end
 
   private
