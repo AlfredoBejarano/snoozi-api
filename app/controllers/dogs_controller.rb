@@ -1,6 +1,6 @@
 require "base64"
 
-class DogController < ApplicationController
+class DogsController < ApplicationController
   include ActionController::MimeResponds
 
   def sanitize(id)
