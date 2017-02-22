@@ -32,8 +32,11 @@ class DogsController < ApplicationController
   end
 
   def create
-    @Dog = Dog.new(dog_params)
 
+    sanitize_params = dog_params.delete :id
+
+    @Dog = Dog.new(sanitize_params)
+  
     respond_to do |format|
       if @Dog.save
         format.json { render json: @Dog, status: :created }
