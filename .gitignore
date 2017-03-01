@@ -46,3 +46,4 @@ thumbs.db
 
 # IDEA files
 .idea
+.env
