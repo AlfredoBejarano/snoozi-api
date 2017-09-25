@@ -26,11 +26,8 @@ class DogsController < ApplicationController
   end
 
   def create
-
     sanitize_params = dog_params.delete :id
-
     @Dog = Dog.new(sanitize_params)
-  
     respond_to do |format|
       if @Dog.save
         format.json { render json: @Dog, status: :created }
@@ -52,11 +49,8 @@ class DogsController < ApplicationController
           :description,
           :found_date,
           :found_location,
-          :gender,
+          :image,
           :number
-        ], 
-        :methods => [        
-          :image_url
         ]
       )
     else
@@ -67,6 +61,6 @@ class DogsController < ApplicationController
   private
   
   def dog_params
-    params.require(:dog).permit(:breed, :color, :gender, :found_location, :found_date, :description, :number, :image)
+    params.require(:dog).permit(:breed, :color, :gender, :found_location, :found_date, :description, :number)
   end
 end
