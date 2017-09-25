@@ -19,7 +19,8 @@ class DogsController < ApplicationController
         :id,
         :breed,
         :color,
-        :image
+        :image,
+        :found_location
       ]
     )
   end
