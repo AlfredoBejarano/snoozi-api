@@ -30,9 +30,9 @@ class DogsController < ApplicationController
     @Dog = Dog.new(sanitize_params)
     respond_to do |format|
       if @Dog.save
-        format.json { render json: @Dog, status: :created }
+        render json: { "dog":@Dog }
       else
-        format.json { render json: @Dog.errors, status: :unprocessable_entity }
+        render json: { "code":"400" }
       end
     end
   end
