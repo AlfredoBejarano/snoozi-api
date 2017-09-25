@@ -28,7 +28,7 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
     if @dog.save
-      render json: @dog, status: 200
+      render json: @dog.id, status: 200
     else 
       render json: {errors: @dog.errors.messages}, status: 400
     end
