@@ -30,7 +30,7 @@ class DogsController < ApplicationController
     if @dog.save
       render json: @dog, status: 200
     else 
-      render json: {errors: @dog.errors.messages}, status 400
+      render json: {errors: @dog.errors.messages}, status: 400
     end
   end
 
