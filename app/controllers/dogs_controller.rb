@@ -29,9 +29,9 @@ class DogsController < ApplicationController
     sanitize_params = dog_params.delete :id
     @Dog = Dog.new(sanitize_params)
     if @Dog.save
-      render json: { "dog":@Dog.id }
+      render json: @Dog.as_json
     else
-      render json: { "code":"400" }
+      render json: @Dog.errors.as_json
     end
   end
 
