@@ -26,13 +26,11 @@ class DogsController < ApplicationController
   end
 
   def create
-    sanitize_params = dog_params.delete :id
-    puts dog_params
-    @Dog = Dog.new(sanitize_params)
-    if @Dog.save
-      render json: @Dog, status: 200
-    else
-      render json: {errors: @Dog.errors}, status: 422
+    @dog = Dog.new(dog_params)
+    if @dog.save
+      render json: @dog, status: 200
+    else 
+      render json: {errors: @dog.errors.messages}, status 400
     end
   end
 
