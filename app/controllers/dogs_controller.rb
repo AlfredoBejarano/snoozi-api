@@ -1,7 +1,6 @@
 require "base64"
 
 class DogsController < ApplicationController
-  before_action :set_s3_direct_post, only: [:create]
   include ActionController::MimeResponds
 
   def sanitize(id)
@@ -20,14 +19,7 @@ class DogsController < ApplicationController
         :id,
         :breed,
         :color,
-        :created_at,
-        :description,
-        :found_date,
-        :found_location,
-        :gender
-      ], 
-      :methods => [        
-        :thumb_url
+        :image
       ]
     )
   end
@@ -55,8 +47,7 @@ class DogsController < ApplicationController
         :only => [
           :id,
           :breed,
-          :color,
-          :created_at,
+          :color,        
           :description,
           :found_date,
           :found_location,
@@ -73,9 +64,6 @@ class DogsController < ApplicationController
   end
 
   private
-  def set_s3_direct_post
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
-  end
   
   def dog_params
     params.require(:dog).permit(:breed, :color, :gender, :found_location, :found_date, :description, :number, :image)

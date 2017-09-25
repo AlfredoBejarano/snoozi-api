@@ -5,9 +5,7 @@ gem 'rails', '4.2.6'
 gem 'rails-api'
 gem 'spring', :group => :development
 gem 'pg'
-gem 'paperclip'
 gem 'puma'
-gem 'aws-sdk', '~> 2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

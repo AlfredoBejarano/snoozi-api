@@ -8,6 +8,7 @@ class CreateDogs < ActiveRecord::Migration
       t.date :found_date
       t.text :description
       t.string :number
+      t.text :image
 
       t.timestamps null: false
     end
