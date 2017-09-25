@@ -1,3 +1,3 @@
 class Dog < ActiveRecord::Base
-  validates :breed, :color, :gender, :found_location, :found_date, :description, :number, :image, :presence => true
+  validates :breed, :color, :found_location, :found_date, :description, :number, :presence => true
 end
